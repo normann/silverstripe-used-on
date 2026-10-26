@@ -25,7 +25,10 @@ composer require normann/silverstripe-used-on
 
 Then flush (`vendor/bin/sake flush`, or `?flush=1`).
 
-Requires Silverstripe CMS 6 and PHP 8.3+.
+| Module version | Branch | Silverstripe CMS | PHP |
+| --- | --- | --- | --- |
+| 1.x | `1` | 6 | 8.3+ |
+
 [Elemental](https://github.com/silverstripe/silverstripe-elemental) and
 [linkfield](https://github.com/silverstripe/silverstripe-linkfield) are optional: blocks and file links already
 link correctly without this module, which covers the records on or behind them (ie. items in a list on a block).
