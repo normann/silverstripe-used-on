@@ -16,6 +16,8 @@ jobs:
       phpunit: true
       phplinting: true
       phpcoverage: false
+      # Run by the js job below instead
+      js: false
 
   # The client assets are built with npm, which the shared CI's js job (yarn) doesn't support
   js:

@@ -12,7 +12,7 @@
     "build:js": "esbuild client/src/js/used-on-table.js --bundle --minify --format=esm --target=es2020 --outfile=client/dist/js/used-on-table.js",
     "build:css": "sass --no-source-map --style=compressed client/src/styles/used-on-table.scss client/dist/styles/used-on-table.css",
     "build:lang": "node client/build-lang.js",
-    "test": "node --test \"client/src/js/**/*.test.js\""
+    "test": "node --test client/src/js/*.test.js"
   },
   "devDependencies": {
     "esbuild": "0.25.10",
