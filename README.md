@@ -92,15 +92,21 @@ returning the records. The records using it can be pages, blocks, child records,
 
 ```sh
 composer install
+composer lint   # PHP code style
 npm install
 npm run build   # Builds client/dist (committed)
 npm test        # JavaScript tests
-vendor/bin/phpunit  # PHP tests, with a database in .env
-composer lint
 ```
 
-`silverstripe/installer` is a dev dependency so the tests run from the module's root. JavaScript strings are
-in `client/lang/src/` (run `npm run build:lang` after changing them).
+The PHP tests run in a Silverstripe project with elemental, linkfield, and this module installed from source,
+ie. with `composer require --prefer-source`, or a symlinked Composer `path` repository (copies leave the tests
+out):
+
+```sh
+vendor/bin/phpunit vendor/normann/silverstripe-used-on/tests/php
+```
+
+JavaScript strings are in `client/lang/src/` (run `npm run build:lang` after changing them).
 
 ## License
 

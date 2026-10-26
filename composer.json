@@ -32,8 +32,7 @@
         "dnadesign/silverstripe-elemental": "^6",
         "silverstripe/linkfield": "^5",
         "silverstripe/recipe-testing": "^4",
-        "squizlabs/php_codesniffer": "^3 || ^4",
-        "silverstripe/installer": "^6"
+        "squizlabs/php_codesniffer": "^3 || ^4"
     },
     "suggest": {
         "dnadesign/silverstripe-elemental": "Links records managed in blocks (ie. a list of downloads) to their edit form, and shows their block and page",
@@ -53,28 +52,6 @@
         "expose": [
             "client/dist",
             "client/lang"
-        ],
-        "project-files-installed": [
-            ".env.example",
-            ".graphql-generated/_manifest_exclude",
-            ".htaccess",
-            "app/.htaccess",
-            "app/_config/mimevalidator.yml",
-            "app/_config/mysite.yml",
-            "app/_config/theme.yml",
-            "app/src/Page.php",
-            "app/src/PageController.php",
-            "behat.yml",
-            "phpunit.xml.dist"
-        ],
-        "public-files-installed": [
-            ".htaccess",
-            "assets/.gitignore",
-            "assets/.htaccess",
-            "assets/web.config",
-            "favicon.ico",
-            "index.php",
-            "web.config"
         ]
     },
     "minimum-stability": "dev",
