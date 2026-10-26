@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches: ['main']
+  pull_request:
+
+jobs:
+  phpunit:
+    uses: silverstripe/gha-ci/.github/workflows/ci.yml@v1
+    permissions:
+      contents: read
+      pull-requests: read
+      actions: write
+    with:
+      phpunit: true
+      phplinting: true
+      phpcoverage: false
+
+  # The client assets are built with npm, which the shared CI's js job (yarn) doesn't support
+  js:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Check the committed client/dist and client/lang match their sources
+        run: |
+          npm run build
+          git diff --exit-code -- client/dist client/lang
+      - run: npm test
