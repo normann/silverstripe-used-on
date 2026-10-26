@@ -1,0 +1,132 @@
+/**
+ * Styles for the "Used on" tab of files, see client/src/js/used-on-table.js
+ **/
+
+// Colours as per the CMS: table row hover, gallery item highlight and link colours, and draft badge
+// (as of silverstripe/admin 3.2), with published (green) and modified (lighter than draft) statuses
+$used-on-stripe-bg: #f0f4f7;
+$used-on-hover-bg: #e8f5ff;
+$used-on-hover-color: #0071c4;
+$used-on-draft-bg: #ffede0;
+$used-on-draft-color: #c23a00;
+$used-on-draft-border-color: #cf3f00;
+$used-on-modified-bg: #fff;
+$used-on-published-bg: #ebf6eb;
+$used-on-published-color: #006e00;
+
+// Stripe rows. CMS tables highlight the whole row on hover, but here only the hovered cell is (below)
+.used-on__table tbody .used-on__row {
+  &,
+  &:hover {
+    background-color: transparent;
+  }
+
+  &:nth-child(even),
+  &:nth-child(even):hover {
+    background-color: $used-on-stripe-bg;
+  }
+}
+
+// Dividers between the columns, in the CMS table border colour
+.used-on__table .used-on__col--title,
+.used-on__table .used-on__col--page {
+  border-left: var(--bs-border-width) solid var(--bs-table-border-color);
+}
+
+// The whole cell of a link is clickable, so highlight the whole cell.
+// Cells with several page links (ie. for shared records) highlight each link instead, see below.
+.used-on__col--title,
+.used-on__col--page {
+  position: relative;
+}
+
+.used-on__col--title,
+.used-on__col--single-link {
+  &:hover,
+  &:focus-within {
+    background-color: $used-on-hover-bg;
+
+    .used-on__cell-link,
+    .used-on__page-link {
+      color: $used-on-hover-color;
+    }
+  }
+
+  .used-on__cell-link::after,
+  .used-on__page-link::after {
+    content: '';
+    inset: 0;
+    position: absolute;
+  }
+}
+
+.used-on__col--page {
+  width: 45%;
+}
+
+.used-on__page-link {
+  color: inherit;
+  display: block;
+  overflow-wrap: anywhere;
+  padding: 10px;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+// Several pages, ie. for shared records
+.used-on__pages {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li + li {
+    border-top: var(--bs-border-width) solid var(--bs-table-border-color);
+  }
+
+  .used-on__page-link {
+    &:hover,
+    &:focus-visible {
+      background-color: $used-on-hover-bg;
+      color: $used-on-hover-color;
+    }
+  }
+}
+
+.used-on__link-icon {
+  margin-left: 0.25rem;
+}
+
+// Publishing status of the page. The colours are set here rather than relying on the CMS's draft badge,
+// which differs between silverstripe/admin versions (ie. 3.0 has a dark orange background).
+.used-on__status {
+  &--draft,
+  &--modified {
+    border-color: $used-on-draft-border-color;
+    color: $used-on-draft-color;
+  }
+
+  &--draft {
+    background-color: $used-on-draft-bg;
+  }
+
+  &--modified {
+    background-color: $used-on-modified-bg;
+  }
+
+  &--published {
+    background-color: $used-on-published-bg;
+    border-color: $used-on-published-color;
+    color: $used-on-published-color;
+  }
+}
+
+// Widen the file editing pane while its "Used on" tab is open, to fit the page column.
+// The pane is full width below the CMS's "lg" breakpoint.
+@media (min-width: 992px) {
+  .asset-admin .editor:has(.tab-pane.active .used-on__table--page-column) {
+    width: min(720px, 60%);
+  }
+}

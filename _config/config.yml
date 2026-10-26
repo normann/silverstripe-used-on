@@ -1,0 +1,23 @@
+---
+Name: used-on
+After:
+  - '#elemental'
+  - '#linkfield'
+---
+SilverStripe\Core\Injector\Injector:
+  SilverStripe\Admin\Forms\UsedOnTable:
+    class: Normann\UsedOn\Forms\UsedOnTable
+
+SilverStripe\Admin\Forms\UsedOnTable:
+  extensions:
+    - Normann\UsedOn\Extensions\UsedOnTableExtension
+
+SilverStripe\Admin\LeftAndMain:
+  extra_requirements_javascript:
+    # Loaded as a module so its top level variables don't clash with other CMS scripts
+    'normann/silverstripe-used-on:client/dist/js/used-on-table.js':
+      type: module
+  extra_requirements_css:
+    - 'normann/silverstripe-used-on:client/dist/styles/used-on-table.css'
+  extra_requirements_i18n:
+    - 'normann/silverstripe-used-on:client/lang'

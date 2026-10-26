@@ -1,0 +1,21 @@
+{
+  "name": "silverstripe-used-on",
+  "private": true,
+  "type": "module",
+  "description": "Client assets for normann/silverstripe-used-on",
+  "license": "BSD-3-Clause",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "npm run build:js && npm run build:css && npm run build:lang",
+    "build:js": "esbuild client/src/js/used-on-table.js --bundle --minify --format=esm --target=es2020 --outfile=client/dist/js/used-on-table.js",
+    "build:css": "sass --no-source-map --style=compressed client/src/styles/used-on-table.scss client/dist/styles/used-on-table.css",
+    "build:lang": "node client/build-lang.js",
+    "test": "node --test \"client/src/js/**/*.test.js\""
+  },
+  "devDependencies": {
+    "esbuild": "0.25.10",
+    "sass": "1.93.2"
+  }
+}

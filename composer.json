@@ -1,0 +1,91 @@
+{
+    "name": "normann/silverstripe-used-on",
+    "description": "Improves the \"Used on\" tab of files in Silverstripe CMS: working CMS edit links for records nested in blocks and pages, the page each usage is on, and its publishing status.",
+    "type": "silverstripe-vendormodule",
+    "keywords": [
+        "silverstripe",
+        "cms",
+        "assets",
+        "files",
+        "used on",
+        "elemental"
+    ],
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Normann Lou",
+            "homepage": "https://github.com/normann"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/normann/silverstripe-used-on/issues"
+    },
+    "require": {
+        "php": "^8.3",
+        "silverstripe/framework": "^6",
+        "silverstripe/admin": "^3",
+        "silverstripe/asset-admin": "^3",
+        "silverstripe/cms": "^6",
+        "silverstripe/versioned": "^3"
+    },
+    "require-dev": {
+        "dnadesign/silverstripe-elemental": "^6",
+        "silverstripe/linkfield": "^5",
+        "silverstripe/recipe-testing": "^4",
+        "squizlabs/php_codesniffer": "^3 || ^4",
+        "silverstripe/installer": "^6"
+    },
+    "suggest": {
+        "dnadesign/silverstripe-elemental": "Links records managed in blocks (ie. a list of downloads) to their edit form, and shows their block and page",
+        "silverstripe/linkfield": "File links owned by records managed in blocks are linked and shown in context too"
+    },
+    "autoload": {
+        "psr-4": {
+            "Normann\\UsedOn\\": "src/",
+            "Normann\\UsedOn\\Tests\\": "tests/php/"
+        }
+    },
+    "scripts": {
+        "lint": "phpcs",
+        "lint-clean": "phpcbf"
+    },
+    "extra": {
+        "expose": [
+            "client/dist",
+            "client/lang"
+        ],
+        "project-files-installed": [
+            ".env.example",
+            ".graphql-generated/_manifest_exclude",
+            ".htaccess",
+            "app/.htaccess",
+            "app/_config/mimevalidator.yml",
+            "app/_config/mysite.yml",
+            "app/_config/theme.yml",
+            "app/src/Page.php",
+            "app/src/PageController.php",
+            "behat.yml",
+            "phpunit.xml.dist"
+        ],
+        "public-files-installed": [
+            ".htaccess",
+            "assets/.gitignore",
+            "assets/.htaccess",
+            "assets/web.config",
+            "favicon.ico",
+            "index.php",
+            "web.config"
+        ]
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true,
+            "silverstripe/vendor-plugin": true,
+            "silverstripe/recipe-plugin": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "php-http/discovery": true
+        }
+    }
+}
