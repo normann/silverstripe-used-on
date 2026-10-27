@@ -1,5 +1,9 @@
 # Silverstripe Used On
 
+[![CI](https://github.com/normann/silverstripe-used-on/actions/workflows/ci.yml/badge.svg?branch=1)](https://github.com/normann/silverstripe-used-on/actions/workflows/ci.yml)
+[![Latest Stable Version](https://img.shields.io/packagist/v/normann/silverstripe-used-on.svg)](https://packagist.org/packages/normann/silverstripe-used-on)
+[![License](https://img.shields.io/badge/license-BSD--3--Clause-blue.svg)](LICENSE)
+
 Makes the "Used on" tab of files in Silverstripe CMS 6 tell you **where** a file is used, so you can find every
 page it's on before you change or remove it.
 
